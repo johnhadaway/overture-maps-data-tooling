@@ -1,0 +1,6 @@
+{
+    "places": {
+       "SELECT" : "json_extract(names, '$.common') as commonName, json_array(names) as names, json_array(categories) as categories, categories.main as mainCategory, confidence, json_array(socials) as socials, json_array(websites) as websites, json_array(emails) as emails, json_array(phones) as phones, json_array(brand) as brand, json_array(addresses) as addresses, theme, type, version, updateTime, json_array(sources) as sources, ST_GeomFromWkb(geometry) AS geometry",
+       "GEOMETRIES" : ["POINT"]
+    }
+}
