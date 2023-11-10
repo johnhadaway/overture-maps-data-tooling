@@ -19,4 +19,3 @@ class ConfigLoader:
                 return theme_config["SELECT"], theme_config["GEOMETRIES"]
             else:
                 raise ValueError(f"No configuration found for type '{data_type}' under theme '{theme}'")
-            
