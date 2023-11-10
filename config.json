@@ -12,6 +12,35 @@
             "SELECT": "theme, type, updateTime, version, maritime, adminLevel, ST_GeomFromWkb(geometry) AS geometry",
             "GEOMETRIES": ["LineString"]
         }
-      }
+    },
+    "buildings": {
+        "SELECT": "",
+        "GEOMETRIES": []
+    },
+    "transportation": {
+        "connector": {
+            "SELECT": "",
+            "GEOMETRIES": []
+        },
+        "segment": {
+            "SELECT": "", 
+            "GEOMETRIES": []
+        }
+
+    },
+    "base": {
+        "land": {
+            "SELECT": "",
+            "GEOMETRIES" : []
+        }, 
+        "landUse": {
+            "SELECT": "",
+            "GEOMETRIES" : []
+        }, 
+        "water": {
+            "SELECT": "",
+            "GEOMETRIES" : []
+        }
+    }
 }
   
