@@ -1,6 +1,6 @@
 {
     "places": {
-        "SELECT": "json_extract(names, '$.common') as commonName, json_array(names) as names, json_array(categories) as categories, categories.main as mainCategory, confidence, json_array(socials) as socials, json_array(websites) as websites, json_array(emails) as emails, json_array(phones) as phones, json_array(brand) as brand, json_array(addresses) as addresses, theme, type, version, updateTime, json_array(sources) as sources, ST_GeomFromWkb(geometry) AS geometry",
+        "SELECT": "REPLACE(json_extract(names, '$.common[0].value'), '\"', '') as commonName, REPLACE(json_extract(names, '$.official[0].value'), '\"', '') as officialName, REPLACE(json_extract(categories, '$.main'), '\"', '') as mainCategory, confidence, json_extract(socials, '$') as socials, json_extract(websites, '$') as websites, json_extract(emails, '$') as emails, json_extract(phones, '$') as phones, REPLACE(json_extract(brand, '$.names.common[0].value'), '\"', '') as brandNameCommon, REPLACE(json_extract(addresses, '$[0].freeform'), '\"', '') as addressFreeform, REPLACE(json_extract(addresses, '$[0].locality'), '\"', '') as addressLocality, REPLACE(json_extract(addresses, '$[0].postCode'), '\"', '') as addressPostCode, REPLACE(json_extract(addresses, '$[0].region'), '\"', '') as addressRegion, REPLACE(json_extract(addresses, '$[0].country'), '\"', '') as addressCountry, theme, type, version, updateTime, json_extract(sources, '$') as sources, wikidata, ST_GeomFromWkb(geometry) AS geometry",
         "GEOMETRIES": ["POINT"]
     },
     "admins": {
