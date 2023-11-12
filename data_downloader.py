@@ -1,5 +1,5 @@
 import argparse
-from utils.data_downloader import DataDownloader
+from data_downloader.data_downloader import DataDownloader
 
 def main():
     parser = argparse.ArgumentParser(description='Download data from Overture Maps.')
