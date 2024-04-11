@@ -17,6 +17,8 @@ class DataDownloader:
 
     def download_data(self):
         con = duckdb.connect(database=':memory:', read_only=False)
+        con.execute("INSTALL spatial")
+        con.execute("INSTALL https")
         con.execute("LOAD spatial")
         con.execute("LOAD https")
         con.execute("SET s3_region='us-west-2'")

@@ -1,15 +1,15 @@
 {
     "places": {
-        "SELECT": "REPLACE(json_extract(names, '$.common[0].value'), '\"', '') as commonName, REPLACE(json_extract(names, '$.official[0].value'), '\"', '') as officialName, REPLACE(json_extract(categories, '$.main'), '\"', '') as mainCategory, confidence, json_extract(socials, '$') as socials, json_extract(websites, '$') as websites, json_extract(emails, '$') as emails, json_extract(phones, '$') as phones, REPLACE(json_extract(brand, '$.names.common[0].value'), '\"', '') as brandNameCommon, REPLACE(json_extract(addresses, '$[0].freeform'), '\"', '') as addressFreeform, REPLACE(json_extract(addresses, '$[0].locality'), '\"', '') as addressLocality, REPLACE(json_extract(addresses, '$[0].postCode'), '\"', '') as addressPostCode, REPLACE(json_extract(addresses, '$[0].region'), '\"', '') as addressRegion, REPLACE(json_extract(addresses, '$[0].country'), '\"', '') as addressCountry, theme, type, version, updateTime, json_extract(sources, '$') as sources, wikidata, ST_GeomFromWkb(geometry) AS geometry",
+        "SELECT": "REPLACE(json_extract(names, '$.common[0].value'), '\"', '') as commonName, REPLACE(json_extract(names, '$.official[0].value'), '\"', '') as officialName, REPLACE(json_extract(categories, '$.main'), '\"', '') as mainCategory, confidence, json_extract(socials, '$') as socials, json_extract(websites, '$') as websites, json_extract(emails, '$') as emails, json_extract(phones, '$') as phones, REPLACE(json_extract(brand, '$.names.common[0].value'), '\"', '') as brandNameCommon, REPLACE(json_extract(addresses, '$[0].freeform'), '\"', '') as addressFreeform, REPLACE(json_extract(addresses, '$[0].locality'), '\"', '') as addressLocality, REPLACE(json_extract(addresses, '$[0].postCode'), '\"', '') as addressPostCode, REPLACE(json_extract(addresses, '$[0].region'), '\"', '') as addressRegion, REPLACE(json_extract(addresses, '$[0].country'), '\"', '') as addressCountry, theme, type, version, update_time, json_extract(sources, '$') as sources, ST_GeomFromWkb(geometry) AS geometry",
         "GEOMETRIES": ["POINT"]
     },
     "admins": {
         "locality": {
-            "SELECT": "theme, type, subType, localityType, json_array(names), ST_GeomFromWkb(geometry) AS geometry, CASE WHEN subType = 'administrativeLocality' THEN adminLevel ELSE NULL END as adminLevel, CASE WHEN adminLevel >= 3 THEN context ELSE NULL END as context",
+            "SELECT": "theme, type, sub_type, locality_type, json_array(names), ST_GeomFromWkb(geometry) AS geometry, CASE WHEN subType = 'administrativeLocality' THEN adminLevel ELSE NULL END as adminLevel, CASE WHEN adminLevel >= 3 THEN context ELSE NULL END as context",
             "GEOMETRIES": ["POINT", "POLYGON", "MULTIPOLYGON"]
         },
         "administrativeBoundary": {
-            "SELECT": "theme, type, updateTime, version, maritime, adminLevel, ST_GeomFromWkb(geometry) AS geometry",
+            "SELECT": "theme, type, update_time, version, maritime, adminLevel, ST_GeomFromWkb(geometry) AS geometry",
             "GEOMETRIES": ["LineString"]
         }
     },
